@@ -15,6 +15,7 @@ BuildArch:	noarch
 BuildRequires:	python-distribute
 BuildRequires:	python-sphinx
 BuildRequires:	pkgconfig(python)
+BuildRequires:	python-setuptools
 
 %description
 Python module to interface with the pkg-config command line tool
