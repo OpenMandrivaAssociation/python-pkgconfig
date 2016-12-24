@@ -38,7 +38,7 @@ popd
 python setup.py build
 
 %install
-python setup.py install -O1 --skip-build --root %{buildroot} --install-purelib=%{py_platsitedir}
+python setup.py install -O1 --skip-build --root %{buildroot}
 
 pushd %{py2dir}
 %{__python2} setup.py install --skip-build --root=%{buildroot}
@@ -46,7 +46,7 @@ popd
 
 %files
 %doc README.rst LICENSE
-%{py_platsitedir}/*
+%{py_puresitedir}/*
 
 %files -n python2-%{shortname}
 %doc LICENSE
