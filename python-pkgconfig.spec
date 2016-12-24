@@ -14,9 +14,10 @@ Source0:        http://pypi.python.org/packages/source/p/pkgconfig/%{shortname}-
 BuildArch:	noarch
 BuildRequires:	python-distribute
 BuildRequires:	python-sphinx
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	python-setuptools
-
+BuildRequires:	pkgconfig(python2)
+BuildRequires:	python2-setuptools
 %description
 Python module to interface with the pkg-config command line tool
 
