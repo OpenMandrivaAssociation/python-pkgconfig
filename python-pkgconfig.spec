@@ -4,13 +4,13 @@
 %define shortname pkgconfig
 
 Name:           python-%{shortname}
-Version:        1.2.2
-Release:        1
+Version:	1.5.1
+Release:	1
 Summary:        Python module to interface with the pkg-config command line tool
 Group:          Development/Python
 License:        MIT
 URL:            http://undefined.org/python/#simplejson
-Source0:        http://pypi.python.org/packages/source/p/pkgconfig/%{shortname}-%{version}.tar.gz
+Source0:	https://files.pythonhosted.org/packages/6e/a9/ff67ef67217dfdf2aca847685fe789f82b931a6957a3deac861297585db6/pkgconfig-1.5.1.tar.gz
 BuildArch:	noarch
 BuildRequires:	python-distribute
 BuildRequires:	python-sphinx
