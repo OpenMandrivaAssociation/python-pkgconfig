@@ -1,54 +1,40 @@
 # Disable useless provides ('_speedups.so' and similar)
-%define __noautoprov '_.*\.so'
+#define __noautoprov '_.*\.so'
 
-%define shortname pkgconfig
+%define module pkgconfig
 
-Name:           python-%{shortname}
-Version:	1.5.1
-Release:	1
 Summary:        Python module to interface with the pkg-config command line tool
+Name:           python-%{module}
+Version:	1.5.5
+Release:	1
 Group:          Development/Python
 License:        MIT
-URL:            http://undefined.org/python/#simplejson
-Source0:	https://files.pythonhosted.org/packages/6e/a9/ff67ef67217dfdf2aca847685fe789f82b931a6957a3deac861297585db6/pkgconfig-1.5.1.tar.gz
-BuildArch:	noarch
-BuildRequires:	python-distribute
-BuildRequires:	python-sphinx
+URL:            https://github.com/matze/pkgconfig
+Source0:        https://github.com/matze/pkgconfig/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
+Source1:	setup.py
 BuildRequires:	pkgconfig(python3)
-BuildRequires:	python-setuptools
-BuildRequires:	pkgconfig(python2)
-BuildRequires:	python2-setuptools
+BuildRequires:  python3dist(setuptools)
+
+BuildArch:	noarch
+
 %description
 Python module to interface with the pkg-config command line tool
-
-%package -n python2-%{shortname}
-Summary:        Python module to interface with the pkg-config command line tool
-Group:          Development/Python
-
-%description -n python2-%{shortname}
-Python module to interface with the pkg-config command line tool
-
-%prep
-%setup -q -n %{shortname}-%{version}
-cp -a . %{py2dir}
-
-%build
-pushd %{py2dir}
-%{__python2} setup.py build
-popd
-python setup.py build
-
-%install
-python setup.py install -O1 --skip-build --root %{buildroot}
-
-pushd %{py2dir}
-%{__python2} setup.py install --skip-build --root=%{buildroot}
-popd
 
 %files
 %doc README.rst LICENSE
 %{py_puresitedir}/*
 
-%files -n python2-%{shortname}
-%doc LICENSE
-%{py2_puresitedir}/*
+#---------------------------------------------------------------------------
+
+%prep
+%autosetup -n %{module}-%{version}
+%__cp %{SOURCE1} .
+
+# fix version
+sed -i -e 's|@VERSION@|%{version}|g' setup.py
+
+%build
+%py3_build
+
+%install
+%py3_install
