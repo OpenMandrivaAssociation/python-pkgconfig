@@ -1,6 +1,3 @@
-# Disable useless provides ('_speedups.so' and similar)
-#define __noautoprov '_.*\.so'
-
 %define module pkgconfig
 
 Summary:        Python module to interface with the pkg-config command line tool
