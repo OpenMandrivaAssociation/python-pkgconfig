@@ -3,13 +3,13 @@
 Summary:        Python module to interface with the pkg-config command line tool
 Name:           python-%{module}
 Version:	1.5.5
-Release:	1
+Release:	2
 Group:          Development/Python
 License:        MIT
 URL:            https://github.com/matze/pkgconfig
 Source0:        https://github.com/matze/pkgconfig/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
 Source1:	setup.py
-BuildRequires:	pkgconfig(python3)
+BuildRequires:	pkgconfig(python)
 BuildRequires:  python3dist(setuptools)
 
 BuildArch:	noarch
@@ -31,7 +31,7 @@ Python module to interface with the pkg-config command line tool
 sed -i -e 's|@VERSION@|%{version}|g' setup.py
 
 %build
-%py3_build
+%py_build
 
 %install
-%py3_install
+%py_install
