@@ -9,6 +9,7 @@ License:        MIT
 URL:            https://github.com/matze/pkgconfig
 Source0:        https://github.com/matze/pkgconfig/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
 BuildSystem:	python
+BuildRequires:  python%{pyver}dist(pip)
 BuildRequires:  python%{pyver}dist(setuptools)
 BuildRequires:  python%{pyver}dist(poetry-core)
 
