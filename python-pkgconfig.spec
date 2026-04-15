@@ -1,7 +1,6 @@
 %define module pkgconfig
 %bcond tests 1
 
-
 Name:		python-pkgconfig
 Summary:	Python module to interface with the pkg-config command line tool
 Version:	1.6.0
@@ -13,12 +12,14 @@ Source0:	%{URL}/archive/v%{version}/%{name}-%{version}.tar.gz
 
 BuildSystem:	python
 BuildArch:	noarch
+BuildRequires:	pkgconfig
 BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(poetry-core)
 %if %{with tests}
 BuildRequires:	python%{pyver}dist(pytest)
 %endif
+Requires:	%{_bindir}/pkg-config
 
 %description
 Python module to interface with the pkg-config command line tool
