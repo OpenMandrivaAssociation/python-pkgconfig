@@ -4,7 +4,7 @@
 Name:		python-pkgconfig
 Summary:	Python module to interface with the pkg-config command line tool
 Version:	1.6.0
-Release:	1
+Release:	2
 Group:		Development/Python
 License:	MIT
 URL:		https://github.com/matze/pkgconfig
